@@ -32,15 +32,22 @@ const recentPosts = posts.map((post) => {
 
   <main class="page-shell mx-auto max-w-[900px]">
     <Hero
-      greeting="Hi, I'm Alban Istrefi"
-      bio="I'm a tinkering utilitarian by nature, and on a mission to explore the ever evolving world of AI. This is my space, where I will be writing my thoughts on Product Management, AI & web development. Welcome!"
+      greeting=""
+      bio=""
       avatarSrc={heroImage}
       socialLinks={{
         github: "https://github.com",
         linkedin: "https://linkedin.com",
         email: "mailto:hello@example.com"
       }}
-    />
+    >
+      <div slot="greeting">
+        Hi, I’m <a href="https://www.linkedin.com/in/alban-istrefi/" target="_blank" rel="noopener noreferrer" class="text-accent-primary hover:underline">@AlbanIstrefi</a>.
+      </div>
+      <div slot="bio">
+        I tinker, I build, I explore - all with a focus on AI and innovation. As a Product Manager, I’m constantly experimenting with new ideas and ways of working. Here, I share my thoughts on Product Management, AI, and web development.
+      </div>
+    </Hero>
 
     {recentPosts.length > 0 && (
       <section id="recent-posts" class="pt-12 pb-6">
