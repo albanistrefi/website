@@ -272,6 +272,25 @@ body {
 .theme-light .icon-sun { display: none; }
 .theme-light .icon-moon { display: inline-flex; }
 
+.wavy-border {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.25rem;
+}
+
+.wavy-border::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 6px;
+  background-color: var(--color-accent-primary);
+  mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 4"><path d="M0 3.5c5 0 5-3 10-3s5 3 10 3 5-3 10-3 5 3 10 3" fill="none" stroke="black" stroke-width="2"/></svg>');
+  mask-repeat: repeat-x;
+  mask-size: 20px 6px;
+}
+
 /* Header title animation */
 .header-title-anim {
   display: inline-flex;
