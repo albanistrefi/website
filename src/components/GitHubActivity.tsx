@@ -7,21 +7,21 @@ interface Props {
   endpoint?: string;
 }
 
-export const GitHubActivity = ({ data = [], username, endpoint }: Props) => {
+export const GitHubActivity = ({ data, username, endpoint }: Props) => {
   const currentYear = new Date().getFullYear();
-  const [activityData, setActivityData] = useState<Activity[]>(data);
-  const [loading, setLoading] = useState<boolean>(data.length === 0);
+  const [activityData, setActivityData] = useState<Activity[]>(data ?? []);
+  const [loading, setLoading] = useState<boolean>((data?.length ?? 0) === 0);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (data.length > 0) return;
+    if ((data?.length ?? 0) > 0) return;
     if (!username && !endpoint) {
       setLoading(false);
       setError('Missing GitHub username.');
       return;
     }
 
-    const cacheKey = `github-activity:${username || 'default'}`;
+    const cacheKey = `github-activity:${endpoint || username || 'default'}`;
     const cacheTtlMs = 6 * 60 * 60 * 1000;
     const now = Date.now();
     let usedCache = false;
@@ -77,7 +77,7 @@ export const GitHubActivity = ({ data = [], username, endpoint }: Props) => {
       controller.abort();
       clearTimeout(timeoutId);
     };
-  }, [data, username, endpoint]);
+  }, [username, endpoint]);
 
   // Sort and filter for current year only
   const filteredData = useMemo(() => {

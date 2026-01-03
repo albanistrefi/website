@@ -11,7 +11,7 @@ interface Props {
 
 const { class: className, animateTitle = false } = Astro.props;
 ---
-<header data-site-header class={`sticky top-0 w-full z-[1000] [&.is-menu-open]:translate-y-0 [&.is-menu-open]:fixed [&.is-menu-open]:inset-x-0 ${className || ''}`}>
+<header data-site-header class={`sticky top-0 w-full z-[1000] [&.is-menu-open]:translate-y-0 ${className || ''}`}>
   {/* Header Glass Background */}
   <div class="absolute inset-0 bg-background-primary/80 backdrop-blur-md"></div>
 
