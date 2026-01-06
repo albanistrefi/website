@@ -6,6 +6,11 @@
       "source": "/writing/building-secure-web-apps",
       "destination": "/writing/year-end-reflection",
       "permanent": true
+    },
+    {
+      "source": "/writing/2025/building-secure-web-apps",
+      "destination": "/writing/year-end-reflection",
+      "permanent": true
     }
   ]
 }
