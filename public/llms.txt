@@ -1,0 +1,23 @@
+# Alban Istrefi
+> Personal blog about AI, product, and modern web development.
+
+## Site
+- URL: https://www.albanistrefi.me
+- Language: en
+- RSS: https://www.albanistrefi.me/rss.xml
+- Atom: https://www.albanistrefi.me/atom.xml
+- Sitemap: https://www.albanistrefi.me/sitemap-index.xml
+
+## Key Pages
+- https://www.albanistrefi.me/
+- https://www.albanistrefi.me/writing/
+- https://www.albanistrefi.me/about/
+- https://www.albanistrefi.me/search/
+
+## Content
+- Blog posts live under https://www.albanistrefi.me/writing/
+- Each post includes title, description, publish date, and tags.
+- Markdown versions are available at the same URL with `.md` appended.
+
+## Attribution
+- Please attribute to "Alban Istrefi" and link to the source page.

@@ -1,8 +1,9 @@
 ---
 import Layout from './Layout.astro';
-import { Header, Footer } from '@/components';
+import { Header, Footer, Breadcrumbs } from '@/components';
 import { formatDate, getReadingTimeMinutes } from '@/utils';
 import type { CollectionEntry } from 'astro:content';
+import { Fragment } from 'astro/jsx-runtime';
 
 interface Props {
   post: CollectionEntry<'writing'>;
@@ -15,9 +16,54 @@ const slug = post.slug;
 const formattedDate = formatDate(publishDate);
 const minutesRead = getReadingTimeMinutes(post.body);
 const transitionId = `post-heading-${slug}`;
+const updatedDate = post.data.updatedDate ?? publishDate;
+
+const site = Astro.site ?? new URL('https://www.albanistrefi.me');
+const postUrl = new URL(`/writing/${slug}`, site).toString();
+const imageUrl = post.data.image
+  ? new URL(post.data.image, site).toString()
+  : new URL('/og-image@2x.png', site).toString();
+const authorName = post.data.author ?? 'Alban Istrefi';
+
+const blogPostingSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: title,
+  description,
+  datePublished: publishDate.toISOString(),
+  dateModified: updatedDate.toISOString(),
+  mainEntityOfPage: { '@type': 'WebPage', '@id': postUrl },
+  author: { '@type': 'Person', name: authorName },
+  publisher: { '@type': 'Person', name: authorName },
+  image: imageUrl,
+  ...(tags && tags.length > 0 ? { keywords: tags.join(', ') } : {}),
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: site.toString() },
+    { '@type': 'ListItem', position: 2, name: 'Writing', item: new URL('/writing', site).toString() },
+    { '@type': 'ListItem', position: 3, name: title, item: postUrl },
+  ],
+};
+
+const markdownUrl = new URL(`/writing/${slug}.md`, site).toString();
+
+const breadcrumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Writing', href: '/writing' },
+  { name: title, href: `/writing/${slug}`, current: true },
+];
 ---
 
 <Layout title={`${title} - Alban Istrefi`} description={description}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(blogPostingSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <link rel="alternate" type="text/markdown" href={markdownUrl} title={`${title} (Markdown)`} />
+  </Fragment>
   <Header />
 
   <main
@@ -28,6 +74,7 @@ const transitionId = `post-heading-${slug}`;
       
       {/* Title & Tags Area (Desktop: Right Column) */}
       <div class="lg:col-start-2">
+        <Breadcrumbs items={breadcrumbs} class="mb-4" />
         <h1
           class="text-3xl lg:text-4xl font-semibold leading-tight text-text-primary mb-4"
           transition:name={transitionId}

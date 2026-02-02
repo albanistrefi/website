@@ -24,6 +24,7 @@ All posts in the `writing` collection must have the following frontmatter:
 title: string                    # Post title (required)
 description: string              # Post description (required)
 publishDate: date               # Publish date YYYY-MM-DD (required)
+updatedDate: date               # Last updated date YYYY-MM-DD (optional)
 tags: array                     # Array of tags (required)
 draft: boolean                  # Draft status (default: false)
 author: string                  # Author name (optional)
@@ -42,13 +43,14 @@ image: string                   # Hero image path (optional)
 2. Add frontmatter:
    ```yaml
    ---
-   title: My New Post
-   description: A brief description of the post
-   publishDate: 2025-01-15
-   tags: [javascript, tutorial, webdev]
-   draft: false
-   author: Your Name
-   featured: true
+  title: My New Post
+  description: A brief description of the post
+  publishDate: 2025-01-15
+  updatedDate: 2025-02-01
+  tags: [javascript, tutorial, webdev]
+  draft: false
+  author: Your Name
+  featured: true
    ---
    ```
 
@@ -188,8 +190,9 @@ const post: Post = {
 2. **Always set draft status** - Use `draft: true` for unpublished posts
 3. **Descriptive slugs** - Use kebab-case filenames that describe the post
 4. **Required fields** - Always include title, description, publishDate, and tags
-5. **Tag consistency** - Use consistent tag names across posts
-6. **Featured posts** - Mark important posts with `featured: true`
+5. **Use updatedDate** - Set `updatedDate` when you revise an already-published post
+6. **Tag consistency** - Use consistent tag names across posts
+7. **Featured posts** - Mark important posts with `featured: true`
 
 ## Environment-Based Filtering
 
