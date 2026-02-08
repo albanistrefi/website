@@ -2,6 +2,7 @@
 title: "Year-end reflection: building, shipping, and rethinking how we work with AI"
 description: Essential security practices for modern web development, including XSS prevention, CSRF protection, and secure authentication patterns.
 publishDate: 2025-12-22
+updatedDate: 2026-02-08
 tags: [Agentic development, AI, Codex, Claude Code]
 author: Developer
 featured: true
@@ -47,7 +48,7 @@ My agentic development workflow has changed multiple times this year, and it wil
 
 Lately, I’ve been leaning heavily into custom slash commands as the core base of my workflow. For me, they’ve turned out to be effective, both for speed and for keeping communication with the agent tight and focused. This comes after trying many different workflows and approaches that simply didn’t work for me. As models keep getting stronger, I believe many of today’s ways of handling context will become irrelevant. What I’m after is something more composable and future-proof. It also needs to work across agents - there is a huge difference between Claude Code & Codex - but both support slash commands. (Well, Claude Code removed them recently, but that’s a different topic.) 
 
-Files such as CLAUDE.md and AGENT.md are necessary and useful as they are injected by default during each session start. They should, however, be kept as short as possible - a brief project overview and commands to use. Nothing more. Less tooling, less friction, more building.
+Files such as CLAUDE.md and AGENTS.md are necessary and useful as they are injected by default during each session start. They should, however, be kept as short as possible - a brief project overview and commands to use. Nothing more. Less tooling, less friction, more building.
 
 On a concrete level, I have a “multi-agent” approach. Some folks argue you should stick to one, but I find that this works great for me. I use Claude Code to plan and Codex to execute. Now and then, I use Gemini 3 to review implementations, as well as do some frontend-related work. However, with the launch of Opus 4.5, I find myself trusting Claude Code a lot more when it comes to heavy lifting. It really is an excellent model. 
 

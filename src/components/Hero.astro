@@ -30,6 +30,8 @@ const {
   showCTA = true,
   class: className
 } = Astro.props;
+
+const socialIconClass = 'text-text-secondary hover:text-accent-primary transition-all duration-200 inline-flex items-center p-1 -m-1 transform-gpu hover:-translate-y-0.5 hover:scale-[1.05] hover:rotate-[4deg] hover:drop-shadow-[0_6px_18px_rgba(255,255,255,0.18)]';
 ---
 
 <section class={`py-8 lg:py-12 ${className || ''}`}>
@@ -78,23 +80,23 @@ const {
           <span class="h-px w-6 bg-border"></span>
           <div class="flex items-center gap-4">
             {socialLinks.github && (
-              <Link href={socialLinks.github} external showExternalIcon={false} className="text-text-secondary hover:text-accent-primary transition-all duration-200 inline-flex items-center hover:-translate-y-0.5 hover:scale-[1.05] hover:drop-shadow-[0_6px_18px_rgba(255,255,255,0.18)]">
-                <GitHubIcon size="1.5rem" aria-label="GitHub Profile" />
+              <Link href={socialLinks.github} external showExternalIcon={false} className={socialIconClass}>
+                <GitHubIcon size="1.3rem" aria-label="GitHub Profile" />
               </Link>
             )}
             {socialLinks.linkedin && (
-              <Link href={socialLinks.linkedin} external showExternalIcon={false} className="text-text-secondary hover:text-accent-primary transition-all duration-200 inline-flex items-center hover:-translate-y-0.5 hover:scale-[1.05] hover:drop-shadow-[0_6px_18px_rgba(255,255,255,0.18)]">
-                <LinkedInIcon size="1.5rem" aria-label="LinkedIn Profile" />
+              <Link href={socialLinks.linkedin} external showExternalIcon={false} className={socialIconClass}>
+                <LinkedInIcon size="1.3rem" aria-label="LinkedIn Profile" />
               </Link>
             )}
             {socialLinks.x && (
-              <Link href={socialLinks.x} external showExternalIcon={false} className="text-text-secondary hover:text-accent-primary transition-all duration-200 inline-flex items-center hover:-translate-y-0.5 hover:scale-[1.05] hover:drop-shadow-[0_6px_18px_rgba(255,255,255,0.18)]">
-                <XIcon size="1.5rem" aria-label="X Profile" />
+              <Link href={socialLinks.x} external showExternalIcon={false} className={socialIconClass}>
+                <XIcon size="1.3rem" aria-label="X Profile" />
               </Link>
             )}
             {socialLinks.email && (
-              <Link href={socialLinks.email} showExternalIcon={false} className="text-text-secondary hover:text-accent-primary transition-all duration-200 inline-flex items-center hover:-translate-y-0.5 hover:scale-[1.05] hover:drop-shadow-[0_6px_18px_rgba(255,255,255,0.18)]">
-                <EmailIcon size="1.5rem" aria-label="Email Contact" />
+              <Link href={socialLinks.email} showExternalIcon={false} className={socialIconClass}>
+                <EmailIcon size="1.3rem" aria-label="Email Contact" />
               </Link>
             )}
           </div>

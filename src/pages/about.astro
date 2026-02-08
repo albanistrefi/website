@@ -4,6 +4,8 @@ import { Header, Footer, GitHubActivity } from '@/components';
 import { GitHubIcon, LinkedInIcon, EmailIcon, XIcon } from '@/components/Icons';
 import { Image } from 'astro:assets';
 import albanImage from '../assets/A_tomahawk.jpg';
+
+const socialIconClass = 'text-text-secondary hover:text-accent-primary transition-all duration-200 inline-flex items-center p-1 -m-1 transform-gpu hover:-translate-y-0.5 hover:scale-[1.05] hover:rotate-[4deg] hover:drop-shadow-[0_6px_18px_rgba(255,255,255,0.18)]';
 ---
 
 <Layout
@@ -63,16 +65,16 @@ import albanImage from '../assets/A_tomahawk.jpg';
               Connect
             </h2>
             <div class="flex gap-4">
-              <a href="https://github.com/albanistrefi" target="_blank" rel="noopener noreferrer" class="text-text-secondary hover:text-accent-primary transition-all duration-200 inline-flex items-center hover:-translate-y-0.5 hover:scale-[1.05] hover:drop-shadow-[0_6px_18px_rgba(255,255,255,0.18)]" aria-label="GitHub">
+              <a href="https://github.com/albanistrefi" target="_blank" rel="noopener noreferrer" class={socialIconClass} aria-label="GitHub">
                 <GitHubIcon size="1.5rem" />
               </a>
-              <a href="https://www.linkedin.com/in/alban-istrefi/" target="_blank" rel="noopener noreferrer" class="text-text-secondary hover:text-accent-primary transition-all duration-200 inline-flex items-center hover:-translate-y-0.5 hover:scale-[1.05] hover:drop-shadow-[0_6px_18px_rgba(255,255,255,0.18)]" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/in/alban-istrefi/" target="_blank" rel="noopener noreferrer" class={socialIconClass} aria-label="LinkedIn">
                 <LinkedInIcon size="1.5rem" />
               </a>
-              <a href="https://x.com/albaistx" target="_blank" rel="noopener noreferrer" class="text-text-secondary hover:text-accent-primary transition-all duration-200 inline-flex items-center hover:-translate-y-0.5 hover:scale-[1.05] hover:drop-shadow-[0_6px_18px_rgba(255,255,255,0.18)]" aria-label="X">
+              <a href="https://x.com/albaistx" target="_blank" rel="noopener noreferrer" class={socialIconClass} aria-label="X">
                 <XIcon size="1.5rem" />
               </a>
-              <a href="mailto:albanistrefi.b@gmail.com" class="text-text-secondary hover:text-accent-primary transition-all duration-200 inline-flex items-center hover:-translate-y-0.5 hover:scale-[1.05] hover:drop-shadow-[0_6px_18px_rgba(255,255,255,0.18)]" aria-label="Email">
+              <a href="mailto:albanistrefi.b@gmail.com" class={socialIconClass} aria-label="Email">
                 <EmailIcon size="1.5rem" />
               </a>
             </div>

@@ -81,14 +81,7 @@ const markdownUrl = new URL(`/writing/${slug}.md`, site).toString();
       <aside class="hidden lg:block">
         <div class="flex flex-col gap-6">
           <div class="flex flex-col gap-1 text-sm">
-            <span class="text-text-tertiary">Published</span>
             <time datetime={publishDate.toISOString()} class="font-medium text-text-primary">{formattedDate}</time>
-            {hasUpdatedDate && (
-              <>
-                <span class="text-text-tertiary pt-2">Updated</span>
-                <time datetime={updatedDate.toISOString()} class="font-medium text-text-primary">{formattedUpdatedDate}</time>
-              </>
-            )}
             <span class="text-text-tertiary">{minutesRead} min read</span>
           </div>
 
@@ -106,13 +99,6 @@ const markdownUrl = new URL(`/writing/${slug}.md`, site).toString();
         {/* Mobile Metadata */}
         <div class="lg:hidden mb-6 flex flex-wrap items-center gap-3 text-sm text-text-tertiary">
           <time datetime={publishDate.toISOString()}>{formattedDate}</time>
-          {hasUpdatedDate && (
-            <>
-              <span>•</span>
-              <span>Updated</span>
-              <time datetime={updatedDate.toISOString()}>{formattedUpdatedDate}</time>
-            </>
-          )}
           <span>•</span>
           <span>{minutesRead} min read</span>
         </div>
@@ -123,11 +109,18 @@ const markdownUrl = new URL(`/writing/${slug}.md`, site).toString();
         
         {/* Footer */}
         <div class="mt-12 pt-8 border-t border-border">
-            <div class="">
+          <div class="flex flex-col gap-6">
+            {hasUpdatedDate && (
+              <p class="text-sm text-text-tertiary italic">
+                Updated <time datetime={updatedDate.toISOString()}>{formattedUpdatedDate}</time>
+              </p>
+            )}
+            <div>
               <a href="/writing" class="text-sm text-text-tertiary hover:text-accent-primary transition-colors">
                 ← Back to writing
               </a>
             </div>
+          </div>
         </div>
       </article>
     </div>
