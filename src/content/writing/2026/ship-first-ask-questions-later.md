@@ -1,7 +1,7 @@
 ---
 title: "Ship first, ask questions later"
 description: Thoughts on shipping fast, learning from reality, and iterating with intent.
-publishDate: 2026-02-08
+publishDate: 2026-02-12
 tags: [product, shipping, AI, Agentic Engineering]
 author: Alban Istrefi
 draft: false
