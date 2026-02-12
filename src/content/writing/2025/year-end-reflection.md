@@ -4,7 +4,7 @@ description: Essential security practices for modern web development, including 
 publishDate: 2025-12-22
 updatedDate: 2026-02-08
 tags: [Agentic development, AI, Codex, Claude Code]
-author: Developer
+author: Alban Istrefi
 featured: true
 draft: false
 ---
