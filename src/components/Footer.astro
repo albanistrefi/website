@@ -1,5 +1,6 @@
 ---
 import { GitHubIcon, LinkedInIcon, EmailIcon, XIcon } from './Icons';
+import { socialLinks, socialIconClass } from '@/config/socialLinks';
 
 interface Props {
   class?: string;
@@ -7,7 +8,6 @@ interface Props {
 
 const { class: className } = Astro.props;
 const currentYear = new Date().getFullYear();
-const socialIconClass = 'text-text-secondary hover:text-accent-primary transition-all duration-200 inline-flex items-center p-1 -m-1 transform-gpu hover:-translate-y-0.5 hover:scale-[1.05] hover:rotate-[4deg] hover:drop-shadow-[0_6px_18px_rgba(255,255,255,0.18)] focus:outline-none focus:ring-2 focus:ring-accent-primary focus:ring-offset-2 focus:ring-offset-background-primary rounded';
 ---
 
 <footer class={`mt-12 lg:mt-16 ${className || ''}`}>
@@ -31,7 +31,7 @@ const socialIconClass = 'text-text-secondary hover:text-accent-primary transitio
         {/* Social Links */}
         <div class="flex items-center gap-4 lg:gap-6 order-1 lg:order-2">
           <a
-            href="https://github.com/albanistrefi"
+            href={socialLinks.github}
             target="_blank"
             rel="noopener noreferrer"
             class={socialIconClass}
@@ -40,7 +40,7 @@ const socialIconClass = 'text-text-secondary hover:text-accent-primary transitio
             <GitHubIcon size="1.125rem" />
           </a>
           <a
-            href="https://www.linkedin.com/in/alban-istrefi/"
+            href={socialLinks.linkedin}
             target="_blank"
             rel="noopener noreferrer"
             class={socialIconClass}
@@ -49,7 +49,7 @@ const socialIconClass = 'text-text-secondary hover:text-accent-primary transitio
             <LinkedInIcon size="1.125rem" />
           </a>
           <a
-            href="https://x.com/albaistx"
+            href={socialLinks.x}
             target="_blank"
             rel="noopener noreferrer"
             class={socialIconClass}
@@ -58,7 +58,7 @@ const socialIconClass = 'text-text-secondary hover:text-accent-primary transitio
             <XIcon size="1.125rem" />
           </a>
           <a
-            href="mailto:albanistrefi.b@gmail.com"
+            href={socialLinks.email}
             class={socialIconClass}
             aria-label="Send email"
           >

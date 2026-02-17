@@ -8,7 +8,7 @@ import type { CollectionEntry } from 'astro:content';
 export function sortPostsByDate(
   posts: CollectionEntry<'writing'>[]
 ): CollectionEntry<'writing'>[] {
-  return posts.sort((a, b) => {
+  return [...posts].sort((a, b) => {
     const dateA = new Date(a.data.publishDate);
     const dateB = new Date(b.data.publishDate);
     return dateB.getTime() - dateA.getTime();

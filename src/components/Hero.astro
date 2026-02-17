@@ -2,36 +2,28 @@
 import { Link } from './Link';
 import { GitHubIcon, LinkedInIcon, EmailIcon, XIcon } from './Icons';
 import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import {
+  socialLinks as defaultSocialLinks,
+  socialIconClass,
+  type SocialLinks
+} from '@/config/socialLinks';
 
 interface Props {
-  avatarSrc?: any;
+  avatarSrc?: string | ImageMetadata;
   greeting?: string;
   bio?: string;
-  socialLinks?: {
-    github?: string;
-    linkedin?: string;
-    email?: string;
-    x?: string;
-  };
-  showCTA?: boolean;
+  socialLinks?: SocialLinks;
   class?: string;
 }
 
 const {
-  avatarSrc = "",
+  avatarSrc,
   greeting = "Hello, I'm a Developer",
   bio = "I'm a Product Manager that loves everything web development and AI",
-  socialLinks = {
-    github: "https://github.com/albanistrefi",
-    linkedin: "https://www.linkedin.com/in/alban-istrefi/",
-    email: "mailto:albanistrefi.b@gmail.com",
-    x: "https://x.com/albaistx"
-  },
-  showCTA = true,
+  socialLinks = defaultSocialLinks,
   class: className
 } = Astro.props;
-
-const socialIconClass = 'text-text-secondary hover:text-accent-primary transition-all duration-200 inline-flex items-center p-1 -m-1 transform-gpu hover:-translate-y-0.5 hover:scale-[1.05] hover:rotate-[4deg] hover:drop-shadow-[0_6px_18px_rgba(255,255,255,0.18)]';
 ---
 
 <section class={`py-8 lg:py-12 ${className || ''}`}>
@@ -73,7 +65,7 @@ const socialIconClass = 'text-text-secondary hover:text-accent-primary transitio
         <slot name="bio">{bio}</slot>
       </div>
 
-      {/* Social Links and CTA */}
+      {/* Social Links */}
       <div class="flex w-full items-center justify-center lg:justify-start">
         <div class="flex items-center gap-3">
           <span class="text-sm font-medium uppercase tracking-wide text-text-tertiary">Connect</span>
